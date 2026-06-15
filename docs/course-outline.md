@@ -10,11 +10,14 @@
 | 02 | Shader 与三角形 | 第一个 GPU 程序 | CPU 组织数据，GPU 执行并行程序 |
 | 03 | Uniform 与动画 | 基于时间的颜色动画 | 用稳定接口把应用状态传给 shader |
 | 04 | Buffer 与 Attribute | 彩色矩形 | 顶点数据布局类似前端组件 props contract |
-| 05 | 坐标与矩阵 | 2D 变换 | 变换矩阵是可组合的渲染状态 |
-| 06 | 纹理与采样器 | 程序化纹理贴图 | GPU 资源上传、绑定、采样与生命周期 |
-| 07 | Framebuffer 与后处理 | 离屏渲染 + 屏幕空间 pass | 多 pass 渲染管线与可测试边界 |
-| 08 | 架构化封装与多 Pass 后处理 | Program / RenderTarget / Pass 小型管线 | 把 WebGL 状态机组织成可维护模块 |
-| 09 | WebGL2 FBO 管线进阶 | WebGL2 FBO + 深度附件 + 像素化/灰度/暗角 | 资源生命周期、resize、viewport 与渲染目标契约 |
+| 05 | 2D 坐标与矩阵 | 2D 平移/旋转/缩放 | 变换矩阵是可组合的渲染状态 |
+| 06 | 3D 矩阵与坐标系 | 旋转立方体与 MVP | model/view/projection 是显式数据转换 pipeline |
+| 07 | 纹理与采样器 | 程序化棋盘格贴图 | GPU 资源上传、绑定、采样与生命周期 |
+| 08 | 交互、动画与渲染循环 | input -> state -> update -> render | 输入系统和渲染循环解耦 |
+| 09 | Framebuffer 与后处理 | 离屏渲染 + 屏幕空间 pass | 多 pass 渲染管线与可测试边界 |
+| 10 | 小型场景架构 | 组合 shader/buffer/uniform/matrix 的小场景 | 从“能画出来”走向“能维护” |
+| 11 | 架构化封装与多 Pass 后处理 | Program / RenderTarget / Pass 小型管线 | 把 WebGL 状态机组织成可维护模块 |
+| 12 | WebGL2 FBO 管线进阶 | WebGL2 FBO + 深度附件 + 像素化/灰度/暗角 | 资源生命周期、resize、viewport 与渲染目标契约 |
 
 ## 每课结构
 

@@ -1,4 +1,4 @@
-# 第 9 课：WebGL2 FBO 与后处理管线
+# 第 12 课：WebGL2 FBO 与后处理管线
 
 本课面向已经熟悉前端工程化、组件抽象和渲染循环的工程师，目标是把 WebGL 的“直接画到屏幕”升级为“先画到纹理，再统一处理”。这一步是实现阴影、拾取、Bloom、SSR、离屏缓存和可组合渲染管线的基础。
 
@@ -47,7 +47,7 @@ python3 -m http.server 8080
 然后打开：
 
 ```text
-http://localhost:8080/lessons/09-webgl2-fbo-pipeline/
+http://localhost:8080/lessons/12-webgl2-fbo-pipeline/
 ```
 
 ## 你应该看到

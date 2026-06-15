@@ -1,4 +1,4 @@
-# 第 5 课：纹理与采样器
+# 第 7 课：纹理与采样器
 
 纹理可以理解为 GPU 上可被 shader 查询的数据表。它不一定来自图片，也可以来自程序生成、视频帧、Canvas、FBO 或数据纹理。本课先用程序生成的棋盘格纹理建立最小闭环，再观察 UV、过滤方式和包裹方式如何改变最终画面。
 
@@ -34,7 +34,7 @@ python3 -m http.server 8080
 打开：
 
 ```text
-http://localhost:8080/lessons/05-textures-samplers/
+http://localhost:8080/lessons/07-textures-samplers/
 ```
 
 ## 你应该看到

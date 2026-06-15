@@ -1,4 +1,4 @@
-# 第 6 课：交互、动画与渲染循环
+# 第 8 课：交互、动画与渲染循环
 
 WebGL 应用不是一次性绘制图片，而是持续处理输入、更新时间状态、再把状态渲染成画面。本课建立最小但可扩展的 `input -> state -> update -> render` 闭环：事件监听只修改状态，`requestAnimationFrame` 统一驱动动画和绘制。
 
@@ -34,7 +34,7 @@ python3 -m http.server 8080
 打开：
 
 ```text
-http://localhost:8080/lessons/06-interaction-animation-loop/
+http://localhost:8080/lessons/08-interaction-animation-loop/
 ```
 
 ## 你应该看到

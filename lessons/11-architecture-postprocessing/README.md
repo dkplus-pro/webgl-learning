@@ -1,4 +1,4 @@
-# 第 8 课：架构化封装与多 Pass 后处理
+# 第 11 课：架构化封装与多 Pass 后处理
 
 第 7 课已经完成“场景 -> FBO -> 屏幕”的最小闭环。本课把这个闭环整理成适合前端团队维护的架构：Program、Geometry、RenderTarget、Pass 和 Pipeline。重点不是追求框架复杂度，而是让渲染步骤有清晰边界，便于调试、替换和扩展。
 
@@ -51,7 +51,7 @@ python3 -m http.server 8080
 然后打开：
 
 ```text
-http://localhost:8080/lessons/08-architecture-postprocessing/
+http://localhost:8080/lessons/11-architecture-postprocessing/
 ```
 
 ## 你应该看到

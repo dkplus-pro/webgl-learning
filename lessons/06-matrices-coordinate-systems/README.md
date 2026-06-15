@@ -1,4 +1,4 @@
-# 第 4 课：矩阵与坐标系
+# 第 6 课：矩阵与坐标系
 
 本课把前三课的“直接给裁剪空间坐标”升级为工程里更常见的矩阵管线：模型坐标经过 `model -> view -> projection` 变换，最终进入 WebGL 的裁剪空间。前端架构师可以把它类比为一条显式的数据转换 pipeline：每一步都只负责一种语义。
 
@@ -38,7 +38,7 @@ python3 -m http.server 8080
 打开：
 
 ```text
-http://localhost:8080/lessons/04-matrices-coordinate-systems/
+http://localhost:8080/lessons/06-matrices-coordinate-systems/
 ```
 
 ## 你应该看到
