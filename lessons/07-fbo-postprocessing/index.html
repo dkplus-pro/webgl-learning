@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>第 7 课：FBO 与后处理</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: radial-gradient(circle at 50% 20%, #24324f, #070912 70%); color: #eef3ff; }
+    main { width: min(1040px, 94vw); display: grid; grid-template-columns: 280px 1fr; gap: 20px; align-items: stretch; }
+    aside { padding: 20px; border: 1px solid rgba(255,255,255,.14); border-radius: 20px; background: rgba(7, 9, 18, .72); box-shadow: 0 20px 60px rgba(0,0,0,.32); }
+    h1 { margin: 0 0 12px; font-size: 22px; }
+    p { line-height: 1.7; color: #cbd6ff; }
+    code { color: #94f7c5; }
+    canvas { width: 100%; height: min(68vh, 620px); min-height: 420px; border-radius: 20px; border: 1px solid rgba(255,255,255,.16); background: #05060d; box-shadow: 0 24px 80px rgba(0,0,0,.42); }
+    .metric { margin-top: 14px; padding: 12px; border-radius: 14px; background: rgba(255,255,255,.08); font-size: 14px; }
+    @media (max-width: 820px) { main { grid-template-columns: 1fr; } canvas { min-height: 360px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <aside>
+      <h1>第 7 课：FBO 与后处理</h1>
+      <p>本 demo 先把旋转三角形渲染到离屏纹理，再用全屏 pass 对纹理做灰度、暗角和像素化。</p>
+      <p>关键状态：<code>bindFramebuffer</code>、<code>viewport</code>、颜色纹理附件、深度附件。</p>
+      <div id="status" class="metric">正在初始化 WebGL2...</div>
+    </aside>
+    <canvas id="gl-canvas" aria-label="FBO postprocessing demo"></canvas>
+  </main>
+  <script src="./main.js"></script>
+</body>
+</html>
