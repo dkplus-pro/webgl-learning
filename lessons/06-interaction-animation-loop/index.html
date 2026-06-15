@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>第 6 课：交互、动画与渲染循环</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: radial-gradient(circle at 70% 0%, #3a244f, #090711 72%); color: #fff4ff; }
+    main { width: min(1080px, 94vw); display: grid; grid-template-columns: 320px 1fr; gap: 20px; align-items: stretch; }
+    aside { padding: 22px; border: 1px solid rgba(255,255,255,.14); border-radius: 20px; background: rgba(17, 8, 28, .78); box-shadow: 0 22px 70px rgba(0,0,0,.35); }
+    h1 { margin: 0 0 12px; font-size: 23px; }
+    p { line-height: 1.7; color: #ead5ff; }
+    code { color: #9df7c9; }
+    button { width: 100%; margin-top: 10px; padding: 10px 12px; border: 0; border-radius: 12px; background: #b775ff; color: #16031f; font-weight: 700; cursor: pointer; }
+    button:hover { filter: brightness(1.08); }
+    canvas { width: 100%; height: min(70vh, 640px); min-height: 420px; border-radius: 20px; border: 1px solid rgba(255,255,255,.16); background: #08030f; box-shadow: 0 24px 80px rgba(0,0,0,.42); touch-action: none; cursor: grab; }
+    canvas:active { cursor: grabbing; }
+    .metric { margin-top: 14px; padding: 12px; border-radius: 14px; background: rgba(255,255,255,.08); font-size: 14px; line-height: 1.7; }
+    @media (max-width: 820px) { main { grid-template-columns: 1fr; } canvas { min-height: 360px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <aside>
+      <h1>第 6 课：交互、动画与渲染循环</h1>
+      <p>拖动画布改变角速度；按 <code>Space</code> 暂停/继续。事件只改状态，绘制统一由 RAF 驱动。</p>
+      <button id="reset-button" type="button">重置状态</button>
+      <div id="status" class="metric">正在初始化 WebGL...</div>
+    </aside>
+    <canvas id="gl-canvas" aria-label="interaction animation render loop demo"></canvas>
+  </main>
+  <script src="./src/main.js"></script>
+</body>
+</html>
