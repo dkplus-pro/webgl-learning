@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>第 8 课：架构化多 Pass 后处理</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: linear-gradient(135deg, #050816, #111b32 55%, #251831); color: #f4f7ff; }
+    main { width: min(1120px, 94vw); display: grid; grid-template-columns: 320px 1fr; gap: 22px; }
+    aside, canvas { border-radius: 22px; border: 1px solid rgba(255,255,255,.15); box-shadow: 0 26px 90px rgba(0,0,0,.38); }
+    aside { padding: 22px; background: rgba(5, 8, 22, .78); }
+    h1 { margin: 0 0 12px; font-size: 23px; }
+    p, li { color: #ccd8ff; line-height: 1.7; }
+    ul { padding-left: 20px; }
+    canvas { width: 100%; height: min(70vh, 640px); min-height: 440px; background: #03050d; }
+    .metric { margin-top: 16px; padding: 12px; border-radius: 14px; background: rgba(139, 164, 255, .12); color: #dfe6ff; font-size: 14px; }
+    code { color: #8df6d5; }
+    @media (max-width: 860px) { main { grid-template-columns: 1fr; } canvas { min-height: 360px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <aside>
+      <h1>第 8 课：架构化多 Pass 后处理</h1>
+      <p>本 demo 使用小型渲染架构封装 WebGL2：<code>Program</code>、<code>Geometry</code>、<code>RenderTarget</code> 与 pass pipeline。</p>
+      <ul>
+        <li>ScenePass 写入离屏纹理</li>
+        <li>BlurPass 使用 ping-pong target</li>
+        <li>CompositePass 输出到屏幕</li>
+      </ul>
+      <div id="status" class="metric">正在初始化渲染管线...</div>
+    </aside>
+    <canvas id="gl-canvas" aria-label="Architecture postprocessing demo"></canvas>
+  </main>
+  <script src="./main.js"></script>
+</body>
+</html>
