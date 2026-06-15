@@ -1,0 +1,40 @@
+:root {
+  color-scheme: dark;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  background: #10131a;
+  color: #eef2ff;
+}
+
+aside {
+  padding: 24px;
+  border-right: 1px solid #263041;
+  background: #151a24;
+}
+
+canvas {
+  width: 100%;
+  height: 100vh;
+  display: block;
+  background: #050816;
+}
+
+code {
+  color: #93c5fd;
+}
+
+@media (max-width: 760px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  canvas {
+    height: 62vh;
+  }
+}
