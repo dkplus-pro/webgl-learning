@@ -1,0 +1,19 @@
+{
+  "name": "webgl-learning",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "面向 7 年前端架构师的 WebGL 中文课程：文档、注释源码与独立可运行 demo。",
+  "scripts": {
+    "lint": "node scripts/lint-js.mjs",
+    "test": "node scripts/verify-lessons.mjs",
+    "typecheck": "node --check scripts/lint-js.mjs && node --check scripts/verify-lessons.mjs && node scripts/lint-js.mjs --check-only"
+  },
+  "keywords": [
+    "webgl",
+    "frontend",
+    "course",
+    "graphics"
+  ],
+  "license": "MIT"
+}
