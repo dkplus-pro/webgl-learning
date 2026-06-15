@@ -9,6 +9,36 @@ const lessonDirs = readdirSync(lessonsDir, { withFileTypes: true })
 
 const failures = [];
 
+function verifyLessonIndex() {
+  const seenNumbers = new Set();
+  for (const lesson of lessonDirs) {
+    const number = lesson.slice(0, 2);
+    if (seenNumbers.has(number)) failures.push(`duplicate lesson number: ${number}`);
+    seenNumbers.add(number);
+  }
+
+  const indexPath = join(lessonsDir, 'README.md');
+  if (!existsSync(indexPath)) {
+    failures.push('lessons/README.md is missing');
+    return;
+  }
+
+  const index = readFileSync(indexPath, 'utf8');
+  for (const lesson of lessonDirs) {
+    const expectedLink = `(${lesson}/README.md)`;
+    if (!index.includes(expectedLink)) {
+      failures.push(`lessons/README.md does not link ${lesson}/README.md`);
+    }
+  }
+
+  const lessonLinkPattern = /\((\d{2}-[^)]+\/README\.md)\)/g;
+  for (const match of index.matchAll(lessonLinkPattern)) {
+    if (!existsSync(join(lessonsDir, match[1]))) {
+      failures.push(`lessons/README.md links missing target: ${match[1]}`);
+    }
+  }
+}
+
 for (const lesson of lessonDirs) {
   const dir = join(lessonsDir, lesson);
   const required = ['README.md', 'index.html', 'src/main.js'];
@@ -32,9 +62,11 @@ for (const lesson of lessonDirs) {
 }
 
 if (lessonDirs.length === 0) failures.push('no lesson directories found');
+verifyLessonIndex();
+
 if (failures.length > 0) {
   console.error(failures.join('\n'));
   process.exit(1);
 }
 
-console.log(`verify-lessons: ${lessonDirs.length} lessons are independently runnable with README, HTML, and JS entrypoints`);
+console.log(`verify-lessons: ${lessonDirs.length} lessons are independently runnable with README, HTML, JS entrypoints, unique numbers, and valid index links`);
