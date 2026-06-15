@@ -108,6 +108,13 @@
       gl.bindFramebuffer(gl.FRAMEBUFFER, this.framebuffer);
       gl.viewport(0, 0, this.width, this.height);
     }
+
+    dispose() {
+      // resize 时主动释放旧 GPU 资源，避免长期运行的页面积累显存。
+      gl.deleteFramebuffer(this.framebuffer);
+      gl.deleteTexture(this.texture);
+      gl.deleteRenderbuffer(this.depth);
+    }
   }
 
   const quad = new Geometry([{ location: 0, size: 2, data: new Float32Array([
@@ -230,6 +237,8 @@
     if (canvas.width === width && canvas.height === height && sceneTarget && blurTarget) return;
     canvas.width = width;
     canvas.height = height;
+    if (sceneTarget) sceneTarget.dispose();
+    if (blurTarget) blurTarget.dispose();
     sceneTarget = new RenderTarget(width, height, 'SceneTarget');
     blurTarget = new RenderTarget(width, height, 'BlurTarget');
   }
