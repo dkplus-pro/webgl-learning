@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>第 5 课：纹理与采样器</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: radial-gradient(circle at 30% 0%, #173b4d, #071016 72%); color: #effbff; }
+    main { width: min(1080px, 94vw); display: grid; grid-template-columns: 320px 1fr; gap: 20px; align-items: stretch; }
+    aside { padding: 22px; border: 1px solid rgba(255,255,255,.14); border-radius: 20px; background: rgba(5, 16, 24, .78); box-shadow: 0 22px 70px rgba(0,0,0,.35); }
+    h1 { margin: 0 0 12px; font-size: 23px; }
+    p, label { line-height: 1.7; color: #cce9f5; }
+    code { color: #9df7c9; }
+    canvas { width: 100%; height: min(70vh, 640px); min-height: 420px; border-radius: 20px; border: 1px solid rgba(255,255,255,.16); background: #031017; box-shadow: 0 24px 80px rgba(0,0,0,.42); }
+    .control { margin: 14px 0; display: grid; gap: 6px; }
+    select, input { width: 100%; accent-color: #69e8ff; }
+    .metric { margin-top: 14px; padding: 12px; border-radius: 14px; background: rgba(255,255,255,.08); font-size: 14px; line-height: 1.7; }
+    @media (max-width: 820px) { main { grid-template-columns: 1fr; } canvas { min-height: 360px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <aside>
+      <h1>第 5 课：纹理与采样器</h1>
+      <p>程序生成棋盘格纹理，观察 <code>sampler2D</code>、UV、过滤与包裹方式。</p>
+      <label class="control">过滤方式
+        <select id="filter-mode">
+          <option value="nearest">NEAREST：像素边界清晰</option>
+          <option value="linear">LINEAR：采样平滑</option>
+        </select>
+      </label>
+      <label class="control">包裹方式
+        <select id="wrap-mode">
+          <option value="repeat">REPEAT：UV 超出后重复</option>
+          <option value="clamp">CLAMP_TO_EDGE：夹取边缘</option>
+        </select>
+      </label>
+      <label class="control">UV 缩放：<span id="uv-scale-label">3.0</span>
+        <input id="uv-scale" type="range" min="1" max="6" value="3" step="0.25" />
+      </label>
+      <div id="status" class="metric">正在初始化 WebGL...</div>
+    </aside>
+    <canvas id="gl-canvas" aria-label="textures and samplers demo"></canvas>
+  </main>
+  <script src="./src/main.js"></script>
+</body>
+</html>
